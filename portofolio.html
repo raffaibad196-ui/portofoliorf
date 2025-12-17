@@ -1,0 +1,236 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#ffb88c; /* soft orange */
+      --bg2:#f76b1c; /* sunset orange */
+      --accent:#ffd166; /* warm yellow */
+      --card: rgba(255,255,255,0.9);
+      --glass: rgba(255,255,255,0.08);
+      --text-dark:#1b1b1b;
+      --muted:#3b3b3b;
+      --shadow: 0 8px 30px rgba(14,14,14,0.25);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }*{box-sizing:border-box}
+body,html{height:100%;margin:0}
+
+/* Full-page sunset background with subtle waves */
+.bg {
+  position:fixed;inset:0;z-index:-1;
+  background-image:
+    radial-gradient(ellipse at 10% 20%, rgba(255,255,255,0.03), transparent 20%),
+    linear-gradient(180deg, rgba(247,107,28,0.9), rgba(255,184,140,0.9) 60%, rgba(46,15,54,0.95) 100%),
+    url('https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=2000&q=60');
+  background-size:cover; background-position:center;
+  filter:contrast(105%) saturate(110%);
+  transform-origin:center;
+  animation: slowPan 30s linear infinite;
+}
+@keyframes slowPan{0%{transform:scale(1) translateY(0)}50%{transform:scale(1.02) translateY(-8px)}100%{transform:scale(1) translateY(0)}}
+
+/* soft overlay 'sun glow' */
+.bg::after{
+  content:'';position:absolute;inset:0;
+  background: radial-gradient(circle at 60% 35%, rgba(255,214,120,0.28), transparent 18%);
+  mix-blend-mode:screen;pointer-events:none;
+}
+
+.container{max-width:1000px;margin:48px auto;padding:28px}
+
+header{
+  display:flex;align-items:center;justify-content:space-between;color:white;margin-bottom:18px
+}
+.brand{display:flex;gap:16px;align-items:center}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff8a65);display:flex;align-items:center;justify-content:center;font-weight:800;color:#5b2b04;box-shadow:0 6px 18px rgba(91,43,4,0.18)}
+.brand h1{font-size:18px;margin:0}
+.brand p{margin:0;font-size:13px;opacity:0.95}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.14));
+  border-radius:14px;padding:18px;backdrop-filter: blur(6px);
+  box-shadow:var(--shadow);color:var(--text-dark);
+}
+
+main{display:grid;grid-template-columns:360px 1fr;gap:20px}
+@media (max-width:880px){main{grid-template-columns:1fr}}
+
+/* Left column (profile) */
+.profile{position:relative}
+.avatar
+.info{margin-top:14px}
+.name{font-size:22px;font-weight:700;margin:0}
+.role{margin:6px 0 12px;color:var(--muted)}
+.bio{font-size:14px;line-height:1.5;color:#141414}
+
+/* Right column sections */
+section{margin-bottom:18px}
+h2{margin:0 0 12px;font-size:18px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,0.28)}
+
+.education table{width:100%;border-collapse:collapse;background:rgba(255,255,255,0.9);border-radius:8px;overflow:hidden}
+.education th,.education td{padding:12px 14px;text-align:left;font-size:14px;color:var(--text-dark)}
+.education thead{background:linear-gradient(90deg,#fff,#fff)}
+.education tr{border-bottom:1px solid rgba(0,0,0,0.06)}
+.education tr:last-child{border-bottom:none}
+
+
+.hobbies{display:flex;flex-wrap:wrap;gap:10px}
+.badge{background:var(--card);padding:10px 12px;border-radius:999px;font-weight:600;box-shadow:0 6px 18px rgba(10,10,10,0.08)}
+
+.contact .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:600px){.contact .contact-grid{grid-template-columns:1fr}}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn-primary{background:linear-gradient(90deg,#ffd166,#ff8a65);color:#5b2b04}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.22);color:white}
+
+footer{margin-top:26px;color:white;text-align:center;font-size:13px;opacity:0.95}
+
+.hobbies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px; /* jarak antar card */
+}
+
+.hobby {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;          /* jarak dalam card */
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.hobby:hover {
+  transform: scale(1.03);
+}
+
+.hobby img {
+  width: 100%;        /* isi ke kiri & kanan */
+  height: 140px;      /* tinggi proporsional */
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RF</div>
+        <div>
+          <h1 style="color:white">Moh. Raffa Nashoihul Ibad</h1>
+          <p style="color:rgba(255,255,255,0.9)">My Portofolio</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn btn-ghost" href="#profile">Profil</a>
+        <a class="btn btn-ghost" href="#pendidikan">Pendidikan</a>
+        <a class="btn btn-ghost" href="#hobi">Hobi</a>
+        <a class="btn btn-ghost" href="#kontak">Kontak</a>
+      </nav>
+    </header><main>
+  <div class="profile card" id="profile">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="avatar" role="img" aria-label="Latar pemandangan sunset"></div>
+     <img src="c:\Users\asus\Downloads\WhatsApp Image 2025-08-08 at 09.48.25.jpeg" height="455" width="325" style="border-radius: 10px; border-image: auto;">
+    <div class="info">
+      <p class="bio" style="text-align: justify;">Halo! Perkenalkan Nama Saya <b>Mohammad Raffa Nashoihul Ibad</b>, saya adalah anak ke-dua dari dua bersaudara. saya lahir pada tanggal 02 November 2009. Saya memiliki minat besar pada dunia kreatif digital, khususnya fotografi dan desain logo. Saya senang mengeksplorasi ide visual dan menuangkannya ke dalam karya yang sederhana, menarik, dan bermakna.</p>
+      <p class="bio" style="text-align: justify;">Bagi saya, setiap desain dan foto adalah cara untuk menyampaikan cerita serta identitas secara visual. Selain itu, saya juga tertarik pada pengembangan diri melalui teknologi dan kreativitas. Dengan semangat belajar yang tinggi, saya terus mengasah kemampuan agar dapat menghasilkan karya yang rapi, konsisten, dan memiliki nilai estetika, serta dapat digunakan secara fungsional di berbagai kebutuhan.</p>
+      <p class="bio" style="text-align: justify;">Fotografi bagi saya memiliki rasa ketenangan, karena mampu mengabadikan momen sederhana menjadi visual yang bermakna. Melalui desain logo, saya menyalurkan kreativitas dengan menggabungkan konsep, warna, dan identitas visual.</p>
+    </div>
+  </div>
+
+  <div>
+    <section class="card education" id="pendidikan">
+      <h2>Pendidikan</h2>
+      <table aria-label="Tabel riwayat pendidikan">
+        <thead>
+          <tr><th>Tahun</th><th>Institusi</th><th>Program / Jurusan</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2016 - 2022</td><td>UPT SDN 19 Gresik</td><td>Umum</td></tr>
+          <tr><td>2022 - 2025</td><td>SMP semen Gresik</td><td>Umum</td></tr>
+          <tr><td>2025 - 2029</td><td>SMK Semen Gresik</td><td>Rekayasa Perangkat Lunak</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" id="hobi">
+  <h2>Hobi</h2>
+
+  <div class="hobbies">
+    <div class="hobby">
+      <strong>Fotografi</strong>
+      <p>                  </p>
+      <img src="c:\Users\asus\Downloads\WhatsApp Image 2025-12-17 at 19.10.50 (2).jpeg" alt="Fotografi" >
+      <p style="text-align: justify;">Ini adalah salah satu dari banyak foto yang saya abadikan.</p>
+    </div>
+
+    <div class="hobby">
+      <strong>Desain</strong>
+      <p>                  </p>
+      <img src="c:\Users\asus\Downloads\WhatsApp Image 2025-12-17 at 19.10.25.jpeg" alt="Desain">
+      <p style="text-align: justify;">Ini adalah salah satu desain yang saya buat untuk keperluan tugas.</p>
+    </div>
+
+  </div>
+</section>
+
+    <section class="card contact" id="kontak">
+      <h2>Kontak</h2>
+      <div class="contact-grid">
+        <div style="background:var(--card);padding:12px;border-radius:10px">
+          <strong>Email</strong>
+          <p style="margin:8px 0 0">raffaibad196@gmail.com</p>
+        </div>
+        <div style="background:var(--card);padding:12px;border-radius:10px">
+          <strong>Telepon</strong>
+          <p style="margin:8px 0 0">+62 831 6508 6164 </p>
+        </div>
+        <div style="grid-column:1/-1;background:var(--card);padding:12px;border-radius:10px">
+          <strong>Alamat</strong>
+          <p style="margin:8px 0 0">Jl. Kapten Darmo Sugondo Gang XII RT 04 RW 02 </p>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d206.49565421344565!2d112.66182100015956!3d-7.180042182107518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sid!2sid!4v1765975604929!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border-radius: 10px;"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Raffa Ibad
+</footer>
+
+  </div>  <script>
+    // small script to set year and allow quick content edits
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Easy customization: change these variables to update the page content
+    const profileData = {
+      name: 'Raffa Ibad',
+      role: 'Pengembang • Desainer • Pembelajar',
+      bio: 'Halo! Saya seorang yang menyukai estetika matahari terbenam, desain sederhana, dan membangun proyek web yang bersih dan mudah digunakan. Saya tertarik pada teknologi, pendidikan, dan fotografi pemandangan.',
+      email: 'email@example.com',
+      phone: '+62 812 3456 7890',
+      address: 'Kota Contoh, Indonesia'
+    };
+
+    // apply data to page
+    document.querySelector('.name').textContent = profileData.name;
+    document.querySelector('.role').textContent = profileData.role;
+    document.querySelector('.bio').textContent = profileData.bio;
+    document.querySelectorAll('.contact .btn-primary')[0].href = 'mailto:' + profileData.email;
+    document.querySelector('.contact-grid p').textContent = profileData.email;
+    const phoneP = document.querySelectorAll('.contact-grid p')[1];
+    if(phoneP) phoneP.textContent = profileData.phone;
+    const addressP = document.querySelectorAll('.contact-grid p')[2];
+    if(addressP) addressP.textContent = profileData.address;
+
+  </script></body>
+</html>
